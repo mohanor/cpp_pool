@@ -1,6 +1,7 @@
-NAME = fragtrap
+NAME = animal
 
-src = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
+src = Animal.cpp Dog.cpp  main.cpp
+
 CC = c++
 
 obj = $(src:.cpp=.o)
@@ -12,7 +13,7 @@ all: $(NAME)
 $(NAME): $(obj)
 	$(CC)  $(flags) $(obj) -o $(NAME)
 
-%.o: %.cpp FragTrap.hpp ScavTrap.hpp ClapTrap.hpp
+%.o: %.cpp Animal.hpp Dog.hpp
 	$(CC) $(flags) -c $< -o $@
 
 clean:
