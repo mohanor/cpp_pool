@@ -1,0 +1,25 @@
+NAME = noLosersHere
+
+src = main.cpp
+
+obj = $(src:.cpp=.o)
+
+CC = c++
+
+flags = -Wall -Wextra -Werror -std=c++98
+
+all: maatif
+
+maatif: $(obj)
+	$(CC)  $(flags) $(obj) -o maatif
+
+%.o: %.c Zombie.hpp
+	$(CC) $(flags) -c $< -o $@
+
+clean:
+	rm -rf $(obj)
+
+fclean: clean
+	rm -rf maatif
+
+re: fclean all
