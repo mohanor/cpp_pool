@@ -6,7 +6,7 @@
 /*   By: matef <matef@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 15:03:26 by matef             #+#    #+#             */
-/*   Updated: 2022/11/01 12:10:24 by matef            ###   ########.fr       */
+/*   Updated: 2022/11/01 13:34:59 by matef            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,6 @@ Animal &Animal::operator= (const Animal &obj)
     if (this != &obj)
         this->type = obj.type;
     return *this;
-}
-
-void Animal::makeSound() const
-{
-    std::cout << "Animal make sound" << std::endl;
 }
 
 std::string    Animal::getType() const

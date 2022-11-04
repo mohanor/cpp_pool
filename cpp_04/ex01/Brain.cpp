@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: matef <matef@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/29 15:03:23 by matef             #+#    #+#             */
-/*   Updated: 2022/11/01 12:09:29 by matef            ###   ########.fr       */
+/*   Created: 2022/11/01 12:18:05 by matef             #+#    #+#             */
+/*   Updated: 2022/11/01 12:40:39 by matef            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_H
-#define ANIMAL_H
+#include "Brain.hpp"
 
-#include <iostream>
-
-class Animal
+Brain::Brain()
 {
-    protected:
-        std::string type;
+    std::cout << "Brain default constructor called" << std::endl;
+}
 
-    public:
-        Animal();
-        virtual ~Animal();
-        Animal(const Animal &obj);
-        Animal &operator= (const Animal &obj);
-        virtual void makeSound() const;
-        void    setType(std::string type);
-        std::string    getType() const;
-};
-
-#endif
+Brain::~Brain()
+{
+    std::cout << "Brain destructor called" << std::endl;
+}

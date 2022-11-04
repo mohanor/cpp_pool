@@ -6,7 +6,7 @@
 /*   By: matef <matef@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 15:03:23 by matef             #+#    #+#             */
-/*   Updated: 2022/11/01 12:09:29 by matef            ###   ########.fr       */
+/*   Updated: 2022/11/01 13:34:31 by matef            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Animal
         virtual ~Animal();
         Animal(const Animal &obj);
         Animal &operator= (const Animal &obj);
-        virtual void makeSound() const;
+        virtual void makeSound() const = 0;
         void    setType(std::string type);
         std::string    getType() const;
 };

@@ -6,18 +6,23 @@
 /*   By: matef <matef@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 22:39:47 by matef             #+#    #+#             */
-/*   Updated: 2022/10/29 22:40:05 by matef            ###   ########.fr       */
+/*   Updated: 2022/11/01 12:11:05 by matef            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef CAT_H
+#define CAT_H
 
+#include "Animal.hpp"
 
-class Dog : public Animal
+class Cat : public Animal
 {
     public:
-        Dog();
-        Dog(const Dog &obj);
-        Dog &operator= (const Dog &obj);
-        ~Dog();
-        void makeSound();
+        Cat();
+        Cat(const Cat &obj);
+        Cat &operator= (const Cat &obj);
+        ~Cat();
+        void makeSound() const;
 };
+
+#endif
