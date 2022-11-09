@@ -6,7 +6,7 @@
 /*   By: matef <matef@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 22:06:54 by matef             #+#    #+#             */
-/*   Updated: 2022/11/09 14:35:34 by matef            ###   ########.fr       */
+/*   Updated: 2022/11/09 15:55:23 by matef            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,14 @@ Intern::Intern()
 }
 
 Intern::Intern(const Intern &obj)
-{
-    std::cout << "Intern copy constructor called" << std::endl;
+{    
     *this = obj;
 }
 
 
-
 Intern &Intern::operator= (const Intern &obj)
 {
-    std::cout << "Intern copy assignment operator called" << std::endl;
-    if (this != &obj)
-        this->type = obj.type;
+    (void) obj;
     return *this;
 }
 

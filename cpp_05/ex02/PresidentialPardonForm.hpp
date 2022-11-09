@@ -6,7 +6,7 @@
 /*   By: matef <matef@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 13:57:35 by matef             #+#    #+#             */
-/*   Updated: 2022/11/08 20:39:55 by matef            ###   ########.fr       */
+/*   Updated: 2022/11/09 16:23:25 by matef            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@ class PresidentialPardonForm : public Form
         // const int exec;
     public:
         PresidentialPardonForm(std::string target);
+        PresidentialPardonForm(const PresidentialPardonForm &obj);
+        PresidentialPardonForm &operator= (const PresidentialPardonForm &obj);
+        std::string getTarget() const;
         ~PresidentialPardonForm();
         void action(Bureaucrat &obj);
 };

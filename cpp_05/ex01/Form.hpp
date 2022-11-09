@@ -6,7 +6,7 @@
 /*   By: matef <matef@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 13:09:49 by matef             #+#    #+#             */
-/*   Updated: 2022/11/08 11:48:38 by matef            ###   ########.fr       */
+/*   Updated: 2022/11/09 15:57:09 by matef            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ class Form
 
     public:
         Form(std::string name = "", int gradeToSigned = 0, int gradeToExecute = 1);
+        Form(const Form &obj);
+        Form &operator= (const Form &obj);
         ~Form();
 
         std::string getName() const;

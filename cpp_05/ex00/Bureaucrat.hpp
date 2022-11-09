@@ -6,7 +6,7 @@
 /*   By: matef <matef@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:35:28 by matef             #+#    #+#             */
-/*   Updated: 2022/11/08 11:55:02 by matef            ###   ########.fr       */
+/*   Updated: 2022/11/09 16:50:10 by matef            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,18 @@ class Bureaucrat
         int         getGrade() const;
         void        increment();
         void        decrement();
+
         class GradeTooHighException : public std::exception {
             public:
                 const char* what() const throw();
         };
 
-
         class GradeTooLowException : public std::exception {
+            public:
+                const char* what() const throw();
+        };
+
+        class InvalidNameException : public std::exception {
             public:
                 const char* what() const throw();
         };

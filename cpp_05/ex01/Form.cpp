@@ -6,7 +6,7 @@
 /*   By: matef <matef@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 13:09:43 by matef             #+#    #+#             */
-/*   Updated: 2022/11/08 12:38:48 by matef            ###   ########.fr       */
+/*   Updated: 2022/11/09 16:37:57 by matef            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,26 @@ Form::Form(std::string name, int gradeToSigned, int gradeToExecute) : name(name)
         throw Bureaucrat::GradeTooHighException();
     if (gradeToSigned > 150)
         throw Bureaucrat::GradeTooLowException();
+    if (gradeToExecute < 1)
+        throw Bureaucrat::GradeTooHighException();
+    if (gradeToExecute > 150)
+        throw Bureaucrat::GradeTooLowException();
     if (name == "")
     {
-        std::cout << "name cant be empty" << std::endl;
-        exit(0);
+        throw Bureaucrat::GradeTooLowException();
     }
+}
+
+Form::Form(const Form &obj) : name(obj.name), gradeToSigned(obj.gradeToSigned), gradeToExecute(obj.gradeToExecute)
+{
+    *this = obj;
+}
+
+Form &Form::operator= (const Form &obj)
+{
+    if (this != &obj)
+        this->formSigned = obj.getFormSigned();
+    return *this;
 }
 
 Form::~Form()

@@ -6,7 +6,7 @@
 /*   By: matef <matef@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:35:26 by matef             #+#    #+#             */
-/*   Updated: 2022/11/07 13:06:57 by matef            ###   ########.fr       */
+/*   Updated: 2022/11/09 16:58:44 by matef            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int main()
 {
-    Bureaucrat a("matef");
     try
     {
+        Bureaucrat a("");
         std::cout << a << std::endl;
         a.increment();
         std::cout << a << std::endl;
