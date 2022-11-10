@@ -6,7 +6,7 @@
 /*   By: matef <matef@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:35:28 by matef             #+#    #+#             */
-/*   Updated: 2022/11/08 11:51:46 by matef            ###   ########.fr       */
+/*   Updated: 2022/11/09 20:32:32 by matef            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,12 @@ class Bureaucrat
 
         void        signForm(Form &obj);
         class GradeTooHighException : public std::exception {
+            private:
+                const char *message;
             public:
+                GradeTooHighException(const char *message);
                 const char* what() const throw();
         };
-
 
         class GradeTooLowException : public std::exception {
             public:

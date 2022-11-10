@@ -6,7 +6,7 @@
 /*   By: matef <matef@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 13:57:41 by matef             #+#    #+#             */
-/*   Updated: 2022/11/08 20:40:20 by matef            ###   ########.fr       */
+/*   Updated: 2022/11/10 13:52:38 by matef            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,17 @@ class RobotomyRequestForm : public Form
 {
     private:
         std::string target;
-        // const int sign;
-        // const int exec;
+
     public:
+        RobotomyRequestForm();
+
+        RobotomyRequestForm(const RobotomyRequestForm &obj);
+        RobotomyRequestForm &operator= (const RobotomyRequestForm &obj);
+
         RobotomyRequestForm(std::string target);
         ~RobotomyRequestForm();
         void action(Bureaucrat &obj);
+        std::string getTarget() const;
 };
 
 

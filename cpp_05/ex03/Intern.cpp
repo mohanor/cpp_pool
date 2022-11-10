@@ -6,7 +6,7 @@
 /*   By: matef <matef@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 22:06:54 by matef             #+#    #+#             */
-/*   Updated: 2022/11/09 15:55:23 by matef            ###   ########.fr       */
+/*   Updated: 2022/11/10 14:14:34 by matef            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,6 @@ Form *Intern::makeForm(std::string name, std::string target)
         }
     }
     
-    std::cout << "error : from not exist" << std::endl;
+    std::cout << "error : " << name << " not exist" << std::endl;
     return NULL; 
 }

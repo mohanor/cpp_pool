@@ -6,7 +6,7 @@
 /*   By: matef <matef@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:35:26 by matef             #+#    #+#             */
-/*   Updated: 2022/11/08 22:01:39 by matef            ###   ########.fr       */
+/*   Updated: 2022/11/10 13:39:36 by matef            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,20 @@
 
 int main()
 {
-    ShrubberyCreationForm a("home");
-  
+    ShrubberyCreationForm shrubbery("home");
+    PresidentialPardonForm presidential("home");
+    RobotomyRequestForm robotomy("home");
 
-    Bureaucrat s = Bureaucrat("name", 1);
+    Bureaucrat s = Bureaucrat("ahmed", 1);
 
-    a.beSigned(s);
-    a.action(s);
+
+    std::cout << "\n\n";
+    shrubbery.beSigned(s);
+    
+    shrubbery.action(s);
+    presidential.action(s);
+    robotomy.action(s);
    
+    std::cout << "\n\n";
     return 0;
 }

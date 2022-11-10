@@ -6,7 +6,7 @@
 /*   By: matef <matef@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 13:09:43 by matef             #+#    #+#             */
-/*   Updated: 2022/11/09 16:37:57 by matef            ###   ########.fr       */
+/*   Updated: 2022/11/10 13:11:31 by matef            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,12 @@
 
 Form::Form(std::string name, int gradeToSigned, int gradeToExecute) : name(name), gradeToSigned(gradeToSigned), gradeToExecute(gradeToExecute)
 {
-    std::cout << "Form default constructor called" << std::endl;
-    if (gradeToSigned < 1)
-        throw Bureaucrat::GradeTooHighException();
-    if (gradeToSigned > 150)
-        throw Bureaucrat::GradeTooLowException();
-    if (gradeToExecute < 1)
-        throw Bureaucrat::GradeTooHighException();
-    if (gradeToExecute > 150)
-        throw Bureaucrat::GradeTooLowException();
+    if (gradeToExecute < 1 || gradeToSigned < 1)
+        throw Form::GradeTooHighException("GradeTooHighException");
+    if (gradeToExecute > 150 || gradeToSigned > 150)
+        throw Form::GradeTooLowException();
     if (name == "")
-    {
-        throw Bureaucrat::GradeTooLowException();
-    }
+        throw std::invalid_argument("invalid argument");
 }
 
 Form::Form(const Form &obj) : name(obj.name), gradeToSigned(obj.gradeToSigned), gradeToExecute(obj.gradeToExecute)
@@ -44,7 +37,6 @@ Form &Form::operator= (const Form &obj)
 
 Form::~Form()
 {
-    std::cout << "Form destructor called" << std::endl;
 }
 
 std::string Form::getName() const
@@ -72,14 +64,16 @@ void Form::setFormSigned(bool fromSigned)
     this->formSigned = fromSigned;
 }
 
-const char * Form::GradeTooHighException::what() const throw()
+Form::GradeTooHighException::GradeTooHighException(const char *message) : message(message) {}
+
+const char *Form::GradeTooHighException::what() const throw()
 {
-    return ("GradeTooLowException1");
+    return this->message;
 }
 
 const char * Form::GradeTooLowException::what() const throw()
 {
-    return ("GradeTooLowException2");
+    return ("GradeTooLowException");
 }
 
 void Form::beSigned(Bureaucrat &obj)
@@ -88,8 +82,9 @@ void Form::beSigned(Bureaucrat &obj)
         this->setFormSigned(true);
     else
     {
+        std::string h = obj.getName() + " couldn't sign " + this->getName() + " because his Grade Too Low.";
         this->setFormSigned(false);
-        throw Form::GradeTooLowException();
+        throw Form::GradeTooHighException(&h[0]);
     }
 }
 

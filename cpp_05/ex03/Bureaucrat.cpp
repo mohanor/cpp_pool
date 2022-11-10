@@ -6,7 +6,7 @@
 /*   By: matef <matef@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:35:31 by matef             #+#    #+#             */
-/*   Updated: 2022/11/08 20:33:17 by matef            ###   ########.fr       */
+/*   Updated: 2022/11/09 22:28:46 by matef            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,18 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : name(name)
         exit(0);
     }
     this->_grade = grade;
+}
+
+Bureaucrat::Bureaucrat(const Bureaucrat &obj) : name(obj.name)
+{
+    *this = obj;
+}
+
+Bureaucrat &Bureaucrat::operator= (const Bureaucrat &obj)
+{
+    if (this != &obj)
+        this->_grade = obj._grade;
+    return *this;
 }
 
 Bureaucrat::~Bureaucrat()

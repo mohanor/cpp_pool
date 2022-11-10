@@ -6,7 +6,7 @@
 /*   By: matef <matef@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 13:09:49 by matef             #+#    #+#             */
-/*   Updated: 2022/11/09 15:57:09 by matef            ###   ########.fr       */
+/*   Updated: 2022/11/09 23:23:05 by matef            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,10 @@ class Form
 
         class GradeTooHighException : public std::exception
         {
+            private:
+                const char *message;
             public:
+                GradeTooHighException(const char *message);
                 const char *what() const throw();
         };
 

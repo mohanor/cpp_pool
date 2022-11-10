@@ -6,7 +6,7 @@
 /*   By: matef <matef@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:35:28 by matef             #+#    #+#             */
-/*   Updated: 2022/11/09 16:50:10 by matef            ###   ########.fr       */
+/*   Updated: 2022/11/09 19:23:42 by matef            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ class Bureaucrat
         int _grade;
 
     public:
-        Bureaucrat();
-        Bureaucrat(std::string name);
+        Bureaucrat(std::string name = "",  int grade = 0);
         Bureaucrat(const Bureaucrat &obj);
         Bureaucrat &operator= (const Bureaucrat &obj);
         ~Bureaucrat();
@@ -44,6 +43,7 @@ class Bureaucrat
         };
 
         class InvalidNameException : public std::exception {
+            
             public:
                 const char* what() const throw();
         };

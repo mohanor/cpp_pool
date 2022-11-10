@@ -6,23 +6,21 @@
 /*   By: matef <matef@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:35:31 by matef             #+#    #+#             */
-/*   Updated: 2022/11/08 12:09:34 by matef            ###   ########.fr       */
+/*   Updated: 2022/11/09 23:18:26 by matef            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include <cstring>
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : name(name)
 {
     if (grade < 1)
-        throw Bureaucrat::GradeTooHighException();
+        throw Bureaucrat::GradeTooHighException("Grade Too High Exception");
     if (grade > 150)
         throw Bureaucrat::GradeTooLowException();
     if (name == "")
-    {
-        std::cout << "name cant be empty" << std::endl;
-        exit(0);
-    }
+        throw std::invalid_argument("invalid argument");
     this->_grade = grade;
 }
 
@@ -43,7 +41,7 @@ int Bureaucrat::getGrade() const
 void Bureaucrat::increment()
 {
     if (this->_grade == 1)
-        throw GradeTooHighException();
+        throw GradeTooHighException("hh");
     this->_grade--;
 }
 
@@ -58,7 +56,6 @@ void Bureaucrat::signForm(Form &obj)
 {
     try
     {
-        
         obj.beSigned(*this);
         std::cout << this->name << " signed " << obj.getName() << std::endl;
     }
@@ -66,19 +63,22 @@ void Bureaucrat::signForm(Form &obj)
     {
         std::cerr << e.what() << '\n';
     }
-    
+}
+
+Bureaucrat::GradeTooHighException::GradeTooHighException(const char *message)
+{
+    this->message = message;
 }
 
 const char *Bureaucrat::GradeTooHighException::what() const throw()
 {
-    return "Grade Too High Exception";
+    return this->message;
 }
 
 const char *Bureaucrat::GradeTooLowException::what() const throw()
 {
     return "Grade Too Low Exception";
 }
-
 
 std::ostream &operator<< (std::ostream& os, Bureaucrat const &obj)
 {

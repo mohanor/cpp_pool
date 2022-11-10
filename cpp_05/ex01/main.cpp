@@ -6,7 +6,7 @@
 /*   By: matef <matef@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:35:26 by matef             #+#    #+#             */
-/*   Updated: 2022/11/08 12:36:59 by matef            ###   ########.fr       */
+/*   Updated: 2022/11/10 13:17:15 by matef            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,19 @@
 
 int main()
 {
-    Form form("war9a", 100);
 
-    Bureaucrat youssef("l9aid youssef", 1);
+    try
+    {
+        Form form("war9a", 2);
 
-
+        Bureaucrat youssef("l9aid youssef", 178);
+        youssef.signForm(form);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
     
-    youssef.signForm(form);
 
     return 0;
 }

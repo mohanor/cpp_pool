@@ -6,15 +6,11 @@
 /*   By: matef <matef@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:35:31 by matef             #+#    #+#             */
-/*   Updated: 2022/11/09 16:50:57 by matef            ###   ########.fr       */
+/*   Updated: 2022/11/09 19:43:35 by matef            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-
-Bureaucrat::Bureaucrat()
-{
-}
 
 Bureaucrat::Bureaucrat(const Bureaucrat &obj)
 {
@@ -28,15 +24,17 @@ Bureaucrat &Bureaucrat::operator= (const Bureaucrat &obj)
     return *this;
 }
 
-Bureaucrat::~Bureaucrat()
-{
-}
+Bureaucrat::~Bureaucrat() {}
 
-Bureaucrat::Bureaucrat(std::string name) : name(name)
+Bureaucrat::Bureaucrat(std::string name, int grade) : name(name)
 {
+    if (grade < 1)
+        throw Bureaucrat::GradeTooHighException();
+    if (grade > 150)
+        throw Bureaucrat::GradeTooLowException();
     if (name == "")
-        throw InvalidNameException();
-    this->_grade = 2;
+        throw std::invalid_argument("invalid argument");
+    this->_grade = grade;
 }
 
 std::string Bureaucrat::getName() const
@@ -77,8 +75,6 @@ const char *Bureaucrat::InvalidNameException::what() const throw()
 {
     return "Invalid Name Exception";
 }
-
-
 
 std::ostream &operator<< (std::ostream& os, Bureaucrat const &obj)
 {
