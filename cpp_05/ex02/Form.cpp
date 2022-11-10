@@ -6,7 +6,7 @@
 /*   By: matef <matef@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 13:09:43 by matef             #+#    #+#             */
-/*   Updated: 2022/11/08 20:37:22 by matef            ###   ########.fr       */
+/*   Updated: 2022/11/10 14:38:28 by matef            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,10 @@ void Form::execute(Bureaucrat & executor) const
 
 std::ostream &operator<< (std::ostream& os, Form const &obj)
 {
-    os << obj.getName() << ", bureaucrat grade to singed  " << obj.getGradeToSigned() << " and grade to exucute is " << obj.getGradeToExecute();
+    std::string sing = "NO";
+
+    if (obj.getFormSigned())
+        sing = "YES";
+    os << "Form name : " << obj.getName() << "\ngrade to singed : " << obj.getGradeToSigned() << "\ngrade to exucute : " << obj.getGradeToExecute() << "\nSinged : " << sing;
     return os;
 }

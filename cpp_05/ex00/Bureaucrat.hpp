@@ -6,7 +6,7 @@
 /*   By: matef <matef@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:35:28 by matef             #+#    #+#             */
-/*   Updated: 2022/11/09 19:23:42 by matef            ###   ########.fr       */
+/*   Updated: 2022/11/10 14:25:45 by matef            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,6 @@ class Bureaucrat
                 const char* what() const throw();
         };
 
-        class InvalidNameException : public std::exception {
-            
-            public:
-                const char* what() const throw();
-        };
 };
 
 std::ostream &operator<< (std::ostream& os, Bureaucrat const &obj);

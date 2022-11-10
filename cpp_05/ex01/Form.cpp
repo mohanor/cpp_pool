@@ -6,7 +6,7 @@
 /*   By: matef <matef@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 13:09:43 by matef             #+#    #+#             */
-/*   Updated: 2022/11/10 13:11:31 by matef            ###   ########.fr       */
+/*   Updated: 2022/11/10 14:36:19 by matef            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,11 @@ void Form::beSigned(Bureaucrat &obj)
 
 std::ostream &operator<< (std::ostream& os, Form const &obj)
 {
-    os << obj.getName() << ", bureaucrat grade to singed  " << obj.getGradeToSigned() << " and grade to exucute is " << obj.getGradeToExecute();
+    std::string sing = "NO";
+
+    if (obj.getFormSigned())
+        sing = "YES";
+    os << "Form name : " << obj.getName() << "\ngrade to singed : " << obj.getGradeToSigned() << "\ngrade to exucute : " << obj.getGradeToExecute() << "\nSinged : " << sing;
     return os;
 }
+

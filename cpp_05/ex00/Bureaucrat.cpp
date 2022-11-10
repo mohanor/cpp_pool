@@ -6,7 +6,7 @@
 /*   By: matef <matef@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:35:31 by matef             #+#    #+#             */
-/*   Updated: 2022/11/09 19:43:35 by matef            ###   ########.fr       */
+/*   Updated: 2022/11/10 14:25:53 by matef            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,11 +69,6 @@ const char *Bureaucrat::GradeTooHighException::what() const throw()
 const char *Bureaucrat::GradeTooLowException::what() const throw()
 {
     return "Grade Too Low Exception";
-}
-
-const char *Bureaucrat::InvalidNameException::what() const throw()
-{
-    return "Invalid Name Exception";
 }
 
 std::ostream &operator<< (std::ostream& os, Bureaucrat const &obj)
